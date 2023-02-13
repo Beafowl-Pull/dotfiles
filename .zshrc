@@ -74,6 +74,8 @@ ZSH_THEME="darkblood"
 plugins=(
     git
     zsh-autosuggestions
+    sudo
+    zsh-syntax-highlighting    
 )
 
 source $ZSH/oh-my-zsh.sh
