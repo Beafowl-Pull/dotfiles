@@ -1,6 +1,16 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export GPG_TTY=$(tty)
+
+# WTF
+neofetch
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -9,7 +19,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="darkblood"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -76,6 +86,7 @@ plugins=(
     zsh-autosuggestions
     sudo
     zsh-syntax-highlighting    
+    gpg-agent
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -132,15 +143,17 @@ alias hw='hwinfo --short'                          # Hardware Info
 alias big="expac -H M '%m\t%n' | sort -h | nl"     # Sort installed packages according to size in MB
 alias gitpkg='pacman -Q | grep -i "\-git" | wc -l' # List amount of -git packages
 alias ohmyzsh='clion ~/.zshrc' # Open fish config in clion
-alias norm='sh ~/Documents/Personal_Project/coding-style-checker/coding-style.sh . . && cat ./coding-style-reports.log && rm -rf ./coding-style-reports.log' # Run coding style script
+alias norm='sh ~/Documents/Perso/coding-style-checker/coding-style.sh . . && cat ./coding-style-reports.log && rm -rf ./coding-style-reports.log' # Run coding style script
 alias doc='cd ~/Documents'                         # Go to Documents
-alias perso='cd ~/Documents/Personal_Project'      # Go to Personal_Project
+alias perso='cd ~/Documents/Perso'      # Go to Personal_Project
 alias cppool='cd ~/Documents/B-PDG-300'            # Go to CPool
 alias softwan='cd ~/Documents/Softwan'             # Go to Softwan
-alias makefile='cp ~/Documents/Personal_Project/Epitech-CPP-Template/Makefile .' # Makefile
+alias makefile='cp ~/Documents/Perso/Epitech-CPP-Template/Makefile .' # Makefile
+alias oop='cd ~/Documents/oop/'			   # Go to oop
 alias clean='make fclean'                          # Clean
 alias re='make re'                                 # Re
-
+alias gc='git clone'				   # git clone
+alias make='make -j 16'				   # I m fast
 
 # LS
 
@@ -160,27 +173,27 @@ alias u="sudo pacman -Syyuu"
 # Intellij Idea
 
 clion () {
-    nohup /home/Beafowl/.local/share/JetBrains/Toolbox/scripts/clion $1 &>/dev/null &
+    nohup /home/beafowl/.local/share/JetBrains/Toolbox/scripts/clion $1 &>/dev/null &
 }
 
 aqua () {
-    nohup /home/Beafowl/.local/share/JetBrains/Toolbox/scripts/aqua $1 &>/dev/null &
+    nohup /home/beafowl/.local/share/JetBrains/Toolbox/scripts/aqua $1 &>/dev/null &
 }
 
 data () {
-    nohup /home/Beafowl/.local/share/JetBrains/Toolbox/scripts/dataspell $1 &>/dev/null &
+    nohup /home/beafowl/.local/share/JetBrains/Toolbox/scripts/dataspell $1 &>/dev/null &
 }
 
 idea () {
-    nohup /home/Beafowl/.local/share/JetBrains/Toolbox/scripts/idea $1 &>/dev/null &
+    nohup /home/beafowl/.local/share/JetBrains/Toolbox/scripts/idea $1 &>/dev/null &
 }
 
 py () {
-    nohup /home/Beafowl/.local/share/JetBrains/Toolbox/scripts/pycharm $1 &>/dev/null &
+    nohup /home/beafowl/.local/share/JetBrains/Toolbox/scripts/pycharm $1 &>/dev/null &
 }
 
 web () {
-    nohup /home/Beafowl/.local/share/JetBrains/Toolbox/scripts/webstorm $1 &>/dev/null &
+    nohup /home/beafowl/.local/share/JetBrains/Toolbox/scripts/webstorm $1 &>/dev/null &
 }
 
 dolphin() {
@@ -207,3 +220,6 @@ push () {
         git add . && git commit && git push
     fi
 }
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
