@@ -14,8 +14,8 @@ install_yay() {
 install_requirements() {
   sudo pacman -Syyuu --noconfirm
   sudo pacman -S pipewire libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python gnome-bluetooth-3.0 pacman-contrib power-profiles-daemon gvfs
-  sudo pacman -S git kitty firefox zsh alacritty thunar tumbler discord htop cmake python-pywal sxiv unzip wpgtk nwg-look --noconfirm
-  yay -S grimblast-git gpu-screen-recorder hyprpicker matugen-bin python-gpustat aylurs-gtk-shell-git hyprsunset-git hypridle-git lens-bin jetbrains-toolbox spotify visual-studio-code-bin python-pywalfox pywal-discord-git spicetify-cli --noconfirm
+  sudo pacman -S kitty firefox zsh alacritty thunar tumbler discord htop cmake python-pywal sxiv unzip nwg-look --noconfirm
+  yay -S grimblast-git gpu-screen-recorder hyprpicker matugen-bin python-gpustat aylurs-gtk-shell-git hyprsunset-git hypridle-git lens-bin jetbrains-toolbox spotify visual-studio-code-bin python-pywalfox pywal-discord-git spicetify-cli wpgtk --noconfirm
 }
 
 install_better_discord() {
