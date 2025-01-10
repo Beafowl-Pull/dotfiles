@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-export script_path=$(pwd)
-echo $script_path
+script_path=$(pwd)
 
 install_yay() {
   sudo pacman -S --needed --noconfirm base-devel
@@ -16,7 +15,7 @@ install_yay() {
 
 install_requirements() {
   sudo pacman -Syyuu --noconfirm
-  sudo pacman -S pipewire libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python gnome-bluetooth-3.0 pacman-contrib power-profiles-daemon gvfs
+  sudo pacman -S pipewire libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python gnome-bluetooth-3.0 pacman-contrib power-profiles-daemon gvfs fastfetch exa rofi
   sudo pacman -S kitty firefox zsh alacritty thunar tumbler discord htop cmake python-pywal sxiv unzip nwg-look --noconfirm
   yay -S grimblast-git gpu-screen-recorder hyprland-git hyprpicker-git matugen-bin python-gpustat aylurs-gtk-shell-git hyprsunset-git hypridle-git lens-bin jetbrains-toolbox spotify visual-studio-code-bin python-pywalfox pywal-discord-git spicetify-cli wpgtk --noconfirm
 }
@@ -80,18 +79,18 @@ install_sddm_theme() {
 }
 
 # Call the functions in sequence
-#install_yay
-#install_requirements
-#install_better_discord
-#install_zsh_requirements
-#install_rofi_requirements
-#install_spotify_theme
+install_yay
+install_requirements
+install_better_discord
+install_zsh_requirements
+install_rofi_requirements
+install_spotify_theme
 install_ags_theme
-#install_sddm_theme
-#copy_dotfiles
-#init_some_stuff
+install_sddm_theme
+copy_dotfiles
+init_some_stuff
 
 # Enable and start systemd services
 #sudo systemctl enable nvidia-hibernate nvidia-suspend nvidia-resume
-#sudo systemctl enable sddm
-#sudo systemctl start sddm
+sudo systemctl enable sddm
+sudo systemctl start sddm
