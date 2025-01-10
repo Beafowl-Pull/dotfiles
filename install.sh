@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+export script_path=$(pwd)
+echo $script_path
+
 install_yay() {
   sudo pacman -S --needed --noconfirm base-devel
   git clone https://aur.archlinux.org/yay-bin.git /tmp/buildyay
@@ -7,7 +10,7 @@ install_yay() {
   makepkg -o
   makepkg -se
   makepkg -i --noconfirm
-  cd ~
+  cd $script_path
   rm -rf /tmp/buildyay
 }
 
@@ -15,7 +18,7 @@ install_requirements() {
   sudo pacman -Syyuu --noconfirm
   sudo pacman -S pipewire libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python gnome-bluetooth-3.0 pacman-contrib power-profiles-daemon gvfs
   sudo pacman -S kitty firefox zsh alacritty thunar tumbler discord htop cmake python-pywal sxiv unzip nwg-look --noconfirm
-  yay -S grimblast-git gpu-screen-recorder hyprpicker matugen-bin python-gpustat aylurs-gtk-shell-git hyprsunset-git hypridle-git lens-bin jetbrains-toolbox spotify visual-studio-code-bin python-pywalfox pywal-discord-git spicetify-cli wpgtk --noconfirm
+  yay -S grimblast-git gpu-screen-recorder hyprland-git hyprpicker-git matugen-bin python-gpustat aylurs-gtk-shell-git hyprsunset-git hypridle-git lens-bin jetbrains-toolbox spotify visual-studio-code-bin python-pywalfox pywal-discord-git spicetify-cli wpgtk --noconfirm
 }
 
 install_better_discord() {
@@ -33,19 +36,23 @@ install_zsh_requirements() {
 
 install_rofi_requirements() {
   git clone --depth=1 https://github.com/adi1090x/rofi.git
+  chmod +x $(pwd)/rofi/setup.sh
   cd rofi
-  chmod +x setup.sh
   ./setup.sh
+  cd $script_path
 }
 
 copy_dotfiles() {
-  cp -r Pictures .config .p10k.zsh .zshrc ~/
+  cp -r $(pwd)/Pictures $(pwd)/.config $(pwd)/.p10k.zsh $(pwd)/.zshrc ~/
 }
 
 install_spotify_theme() {
+  sudo chmod a+wr /opt/spotify
+  sudo chmod a+wr /opt/spotify/Apps -R    
   git clone https://github.com/Comfy-Themes/Spicetify
   cd Spicetify
   ./install.sh
+  cd $script_path
 }
 
 init_some_stuff() {
@@ -61,7 +68,7 @@ init_some_stuff() {
 }
 
 install_ags_theme() {
-  git clone https://github.com/Jas-SinghFSU/HyprPanel.git ~/Documents && ln -s ~/Documents/HyprPanel $HOME/.config/ags
+  git clone https://github.com/Jas-SinghFSU/HyprPanel.git ~/Documents/HyprPanel && ln -s ~/Documents/HyprPanel $HOME/.config/ags
 }
 
 install_sddm_theme() {
@@ -73,18 +80,18 @@ install_sddm_theme() {
 }
 
 # Call the functions in sequence
-install_yay
-install_requirements
-install_better_discord
-install_zsh_requirements
-install_rofi_requirements
-install_spotify_theme
+#install_yay
+#install_requirements
+#install_better_discord
+#install_zsh_requirements
+#install_rofi_requirements
+#install_spotify_theme
 install_ags_theme
-install_sddm_theme
-copy_dotfiles
-init_some_stuff
+#install_sddm_theme
+#copy_dotfiles
+#init_some_stuff
 
 # Enable and start systemd services
-sudo systemctl enable nvidia-hibernate nvidia-suspend nvidia-resume
-sudo systemctl enable sddm
-sudo systemctl start sddm
+#sudo systemctl enable nvidia-hibernate nvidia-suspend nvidia-resume
+#sudo systemctl enable sddm
+#sudo systemctl start sddm
