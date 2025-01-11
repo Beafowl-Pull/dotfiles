@@ -17,7 +17,7 @@ install_requirements() {
   sudo pacman -Syyuu --noconfirm
   sudo pacman -S pipewire libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python gnome-bluetooth-3.0 pacman-contrib power-profiles-daemon gvfs fastfetch exa rofi
   sudo pacman -S kitty firefox zsh alacritty thunar tumbler discord htop cmake python-pywal sxiv unzip nwg-look --noconfirm
-  yay -S grimblast-git gpu-screen-recorder hyprland-git hyprpicker-git matugen-bin python-gpustat aylurs-gtk-shell-git hyprsunset-git hypridle-git lens-bin jetbrains-toolbox spotify visual-studio-code-bin python-pywalfox pywal-discord-git spicetify-cli wpgtk --noconfirm
+  yay -S grimblast-git gpu-screen-recorder hyprland-git hyprpicker-git matugen-bin python-gpustat aylurs-gtk-shell-git hyprsunset-git hypridle-git lens-bin jetbrains-toolbox spotify visual-studio-code-bin python-pywalfox pywal-discord-git spicetify-cli wpgtk ags-hyprpanel-git --noconfirm
 }
 
 install_better_discord() {
@@ -64,10 +64,6 @@ init_some_stuff() {
   /usr/bin/wpg-install.sh -G
   betterdiscordctl install
   pywal-discord
-}
-
-install_ags_theme() {
-  git clone https://github.com/Jas-SinghFSU/HyprPanel.git ~/Documents/HyprPanel && ln -s ~/Documents/HyprPanel $HOME/.config/ags
 }
 
 install_sddm_theme() {

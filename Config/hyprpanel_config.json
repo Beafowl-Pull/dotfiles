@@ -1,0 +1,16 @@
+{
+  "bar.customModules.updates.updateCommand": "/usr/share/hyprpanel/scripts/checkUpdates.sh -arch",
+  "bar.customModules.updates.leftClick": "$TERMINAL -e /usr/share/hyprpanel/scripts/runUpdates.sh -arch",
+  "menus.dashboard.shortcuts.right.shortcut3.command": "bash -c \"/usr/share/hyprpanel/scripts/snapshot.sh\"",
+  "wallpaper.image": "/home/beafowl/Pictures/wallpaper.jpeg",
+  "wallpaper.pywal": true,
+  "theme.matugen": true,
+  "wallpaper.enable": true,
+  "theme.matugen_settings.mode": "dark",
+  "theme.matugen_settings.scheme_type": "tonal-spot",
+  "theme.bar.transparent": false,
+  "bar.customModules.updates.pollingInterval": 1440000,
+  "theme.matugen_settings.variation": "standard_1",
+  "scalingPriority": "gdk",
+  "theme.bar.buttons.enableBorders": false
+}
