@@ -233,10 +233,3 @@ changenamespace() {
 wal -n -R
 clear
 fastfetch
-
-# bun completions
-[ -s "/home/beafowl/.bun/_bun" ] && source "/home/beafowl/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
