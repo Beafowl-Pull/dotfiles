@@ -17,13 +17,14 @@ install_requirements() {
   sudo pacman -Syyuu --noconfirm
   sudo pacman -S pipewire libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python gnome-bluetooth-3.0 pacman-contrib power-profiles-daemon gvfs fastfetch exa rofi
   sudo pacman -S kitty firefox zsh alacritty thunar tumbler discord htop cmake python-pywal sxiv unzip nwg-look --noconfirm
-  yay -S grimblast-git gpu-screen-recorder hyprland-git hyprpicker-git matugen-bin python-gpustat aylurs-gtk-shell-git hyprsunset-git hypridle-git lens-bin jetbrains-toolbox spotify visual-studio-code-bin python-pywalfox pywal-discord-git spicetify-cli wpgtk ags-hyprpanel-git --noconfirm
+  yay -S grimblast-git gpu-screen-recorder hyprland-git hyprpicker-git matugen-bin python-gpustat aylurs-gtk-shell-git hyprsunset-git hypridle-git lens-bin jetbrains-toolbox spotify visual-studio-code-bin python-pywalfox pywal-discord-git spicetify-cli wpgtk ags-hyprpanel-git hyprutils-git --noconfirm
 }
 
 install_better_discord() {
   curl -O https://raw.githubusercontent.com/bb010g/betterdiscordctl/master/betterdiscordctl
   chmod +x betterdiscordctl
   sudo mv betterdiscordctl /usr/local/bin
+  discord
 }
 
 install_zsh_requirements() {
